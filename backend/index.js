@@ -37,9 +37,13 @@ async function run() {
         const user = req.body;
         const file = req.file;
 
-        const filePath = `http://localhost:3000/uploads/${file.filename}`;
-        const details = { user: user.name, imageURL: filePath };
-        const result = await databaseCollection.insertOne(details);
+        console.log(file);
+
+        // await cloudinary.uploader.destroy(publicId);
+
+        // const filePath = `http://localhost:3000/uploads/${file.filename}`;
+        // const details = { user: user.name, imageURL: filePath };
+        // const result = await databaseCollection.insertOne(details);
         res.send(result);
       } catch (error) {
         res.status(500).send({ error: "Failed to add user" });
